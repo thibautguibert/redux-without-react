@@ -15,6 +15,10 @@ const remove10Action = {
     type: "REMOVE 10"
 }
 
+const resetAction = {
+    type: "RESET"
+}
+
 // REDUCER
 const counterReducer = (state = 0, action) => {
     switch (action.type) {
@@ -26,6 +30,8 @@ const counterReducer = (state = 0, action) => {
             return state - 1;
         case "REMOVE 10":
             return state - 10;
+        case "RESET":
+            return 0;
         default:
             return state;
     }
@@ -62,6 +68,11 @@ add10.addEventListener("click", () => {
 const remove10 = document.getElementById("remove10");
 remove10.addEventListener("click", () => {
     store.dispatch(remove10Action)
+})
+
+const reset = document.getElementById("reset");
+reset.addEventListener("click", () => {
+    store.dispatch(resetAction);
 })
 
 // REDUCER TESTS
